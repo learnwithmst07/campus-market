@@ -196,7 +196,7 @@ app.use(cors({
 // =========================
 // Preflight Requests
 // =========================
-app.options("*", cors());
+// app.options("*", cors());
 
 
 // =========================
