@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { Trash2, User, CheckCircle, RefreshCw } from "lucide-react";
+import API_URL from "../api";
 import "./Dashboard.css";
 
 function Dashboard() {
@@ -15,7 +16,7 @@ function Dashboard() {
       try {
         
         // Fetch user profile
-        const userResponse = await fetch("http://localhost:5000/api/auth/check-auth", {
+        const userResponse = await fetch(`${API_URL}/api/auth/check-auth`, {
           credentials: "include",
         });
         if (!userResponse.ok) {
@@ -28,7 +29,7 @@ function Dashboard() {
         setUser(userData.user);
 
         // Fetch user's listings
-        const listingsResponse = await fetch("http://localhost:5000/api/listings/my-listings", {
+        const listingsResponse = await fetch(`${API_URL}/api/listings/my-listings`, {
           credentials: "include",
         });
         if (!listingsResponse.ok) {
@@ -50,7 +51,7 @@ function Dashboard() {
     if (!window.confirm("Are you sure you want to delete this listing?")) return;
 
     try {
-      const response = await fetch(`http://localhost:5000/api/listings/${listingId}`, {
+      const response = await fetch(`${API_URL}/api/listings/${listingId}`, {
         method: "DELETE",
         credentials: "include",
       });
@@ -70,7 +71,7 @@ function Dashboard() {
 
   const handleMarkSold = async (listingId, currentStatus) => {
     try {
-      const response = await fetch(`http://localhost:5000/api/listings/${listingId}/sold`, {
+      const response = await fetch(`${API_URL}/api/listings/${listingId}/sold`, {
         method: "PATCH",
         credentials: "include",
       });

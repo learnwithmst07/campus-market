@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import API_URL from "../api";
 import "./SellForm.css";
 
 export default function SellForm() {
@@ -20,7 +21,7 @@ export default function SellForm() {
   useEffect(() => {
     const checkSession = async () => {
       try {
-        const response = await fetch("http://localhost:5000/api/auth/check-session", {
+        const response = await fetch(`${API_URL}/api/auth/check-session`, {
           method: "GET",
           credentials: "include",
         });
@@ -69,7 +70,7 @@ export default function SellForm() {
     }
 
     try {
-      const response = await fetch("http://localhost:5000/api/listings", {
+      const response = await fetch(`${API_URL}/api/listings`, {
         method: "POST",
         credentials: "include",
         body: formDataToSend,

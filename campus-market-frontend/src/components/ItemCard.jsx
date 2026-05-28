@@ -110,6 +110,7 @@ import React, { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { Heart, MapPin, Clock, User } from "lucide-react";
 import placeholderImage from "../assets/react.svg";
+import API_URL from "../api";
 import "./ItemCard.css";
 
 const ItemCard = ({ item }) => {
@@ -121,7 +122,7 @@ const ItemCard = ({ item }) => {
   useEffect(() => {
     const checkAuth = async () => {
       try {
-        const response = await fetch("http://localhost:5000/api/auth/check-auth", {
+        const response = await fetch(`${API_URL}/api/auth/check-auth`, {
           credentials: "include",
         });
         const data = await response.json();
@@ -143,7 +144,7 @@ const ItemCard = ({ item }) => {
     }
 
     try {
-      const response = await fetch("http://localhost:5000/api/cart/add", {
+      const response = await fetch(`${API_URL}/api/cart/add`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         credentials: "include",

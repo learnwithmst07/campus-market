@@ -204,6 +204,7 @@
 //   );}
 import React, { useState, useEffect } from "react";
 import { Search, ShoppingCart, User, Menu, X, Plus } from "lucide-react";
+import API_URL from "../api";
 import "./Navbar.css";
 
 export default function Navbar() {
@@ -216,7 +217,7 @@ export default function Navbar() {
   useEffect(() => {
     const checkSession = async () => {
       try {
-        const response = await fetch("http://localhost:5000/api/auth/check-session", {
+        const response = await fetch(`${API_URL}/api/auth/check-session`, {
           method: "GET",
           credentials: "include",
         });
@@ -238,7 +239,7 @@ export default function Navbar() {
 
     const fetchCart = async () => {
       try {
-        const response = await fetch("http://localhost:5000/api/cart", {
+        const response = await fetch(`${API_URL}/api/cart`, {
           method: "GET",
           credentials: "include",
         });
@@ -266,7 +267,7 @@ export default function Navbar() {
 
   const handleLogout = async () => {
     try {
-      const response = await fetch("http://localhost:5000/api/auth/logout", {
+      const response = await fetch(`${API_URL}/api/auth/logout`, {
         method: "POST",
         credentials: "include",
       });

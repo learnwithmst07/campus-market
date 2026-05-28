@@ -95,13 +95,28 @@ app.use("/uploads", (req, res, next) => {
 }, express.static(path.join(__dirname, "uploads")));
 
 // Session setup with MongoDB store
+// app.use(
+//   session({
+//     secret: process.env.SESSION_SECRET,
+//     resave: false,
+//     saveUninitialized: false,
+//     store: MongoStore.create({ mongoUrl: "mongodb://localhost:27017/campusmarket" }),
+//     cookie: { secure: false, maxAge: 24 * 60 * 60 * 1000 }, // 24 hours
+//   })
+// );
 app.use(
   session({
     secret: process.env.SESSION_SECRET,
     resave: false,
     saveUninitialized: false,
-    store: MongoStore.create({ mongoUrl: "mongodb://localhost:27017/campusmarket" }),
-    cookie: { secure: false, maxAge: 24 * 60 * 60 * 1000 }, // 24 hours
+    store: MongoStore.create({
+      mongoUrl: process.env.MONGO_URI,
+    }),
+    cookie: {
+      secure: true,
+      sameSite: "none",
+      maxAge: 24 * 60 * 60 * 1000,
+    },
   })
 );
 

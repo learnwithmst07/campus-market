@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import { User } from "lucide-react";
+import API_URL from "../api";
 import "./EditProfile.css";
 
 function EditProfile() {
@@ -20,7 +21,7 @@ function EditProfile() {
   useEffect(() => {
     const fetchUserData = async () => {
       try {
-        const response = await fetch("http://localhost:5000/api/auth/check-auth", {
+        const response = await fetch(`${API_URL}/api/auth/check-auth`, {
           credentials: "include",
         });
         if (!response.ok) {
@@ -58,7 +59,7 @@ function EditProfile() {
     setSuccessMessage("");
 
     try {
-      const response = await fetch("http://localhost:5000/api/auth/update-profile", {
+      const response = await fetch(`${API_URL}/api/auth/update-profile`, {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",

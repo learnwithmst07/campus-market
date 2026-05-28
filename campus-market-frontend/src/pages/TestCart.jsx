@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import API_URL from "../api";
 
 function TestCart() {
   const [listingId, setListingId] = useState("");
@@ -7,7 +8,7 @@ function TestCart() {
 
   const handleAddToCart = async () => {
     try {
-      const response = await fetch("http://localhost:5000/api/cart/add", {
+      const response = await fetch(`${API_URL}/api/cart/add`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -27,7 +28,7 @@ function TestCart() {
 
   const handleGetCart = async () => {
     try {
-      const response = await fetch("http://localhost:5000/api/cart", {
+      const response = await fetch(`${API_URL}/api/cart`, {
         method: "GET",
         credentials: "include",
       });
@@ -41,7 +42,7 @@ function TestCart() {
 
   const handleRemoveFromCart = async (listingId) => {
     try {
-      const response = await fetch(`http://localhost:5000/api/cart/remove/${listingId}`, {
+      const response = await fetch(`${API_URL}/api/cart/remove/${listingId}`, {
         method: "DELETE",
         credentials: "include",
       });

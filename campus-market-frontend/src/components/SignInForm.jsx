@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import API_URL from "../api";
 import "./SignInForm.css";
 
 export default function SignInForm() {
@@ -15,7 +16,7 @@ export default function SignInForm() {
 
   const checkSession = async () => {
     try {
-      const response = await fetch("http://localhost:5000/api/auth/check-session", {
+      const response = await fetch(`${API_URL}/api/auth/check-session`, {
         method: "GET",
         credentials: "include",
       });
@@ -36,7 +37,7 @@ export default function SignInForm() {
   const handleLogin = async (e) => {
     e.preventDefault();
     try {
-      const response = await fetch("http://localhost:5000/api/auth/login", {
+      const response = await fetch(`${API_URL}/api/auth/login`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         credentials: "include",
@@ -59,7 +60,7 @@ export default function SignInForm() {
 
   const handleLogout = async () => {
     try {
-      const response = await fetch("http://localhost:5000/api/auth/logout", {
+      const response = await fetch(`${API_URL}/api/auth/logout`, {
         method: "POST",
         credentials: "include",
       });

@@ -12,7 +12,7 @@
 //   useEffect(() => {
 //     const fetchListings = async () => {
 //       try {
-//         const response = await fetch("http://localhost:5000/api/listings");
+//         const response = await fetch(`${API_URL}/api/listings`);
 //         if (!response.ok) {
 //           const errorText = await response.text();
 //           console.error("Fetch listings failed:", response.status, errorText);
@@ -25,7 +25,7 @@
 //         const formattedListings = data.map((listing) => ({
 //           id: listing._id,
 //           title: listing.productName || "Untitled",
-//           images: [listing.image ? `http://localhost:5000${listing.image}` : "/path/to/placeholder-image.jpg"],
+//           images: [listing.image ? `${API_URL}${listing.image}` : "/path/to/placeholder-image.jpg"],
 //           condition: listing.condition ? listing.condition.toLowerCase() : "unknown",
 //           description: listing.description || "No description available",
 //           price: listing.price ? listing.price.toString() : "0",
@@ -88,6 +88,7 @@ import React, { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Search } from "lucide-react";
 import ItemCard from "../components/ItemCard.jsx";
+import API_URL from "../api";
 import "./Browse.css";
 
 function Browse() {
@@ -111,7 +112,7 @@ function Browse() {
   useEffect(() => {
     const fetchListings = async () => {
       try {
-        const response = await fetch("http://localhost:5000/api/listings");
+        const response = await fetch(`${API_URL}/api/listings`);
         if (!response.ok) {
           const errorText = await response.text();
           console.error("Fetch listings failed:", response.status, errorText);
@@ -124,7 +125,7 @@ function Browse() {
         const formattedListings = data.map((listing) => ({
           id: listing._id,
           title: listing.productName || "Untitled",
-          images: [listing.image ? `http://localhost:5000${listing.image}` : "/path/to/placeholder-image.jpg"],
+          images: [listing.image ? `${API_URL}${listing.image}` : "/path/to/placeholder-image.jpg"],
           condition: listing.condition ? listing.condition.toLowerCase() : "unknown",
           description: listing.description || "No description available",
           price: listing.price ? listing.price.toString() : "0",

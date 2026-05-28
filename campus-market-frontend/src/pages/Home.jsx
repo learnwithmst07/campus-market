@@ -6,6 +6,7 @@ import Categories from "../components/Categories";
 import { ArrowRight } from "lucide-react";
 import ItemCard from "../components/ItemCard";
 import placeholderImage from "../assets/react.svg"; 
+import API_URL from "../api";
 import "./FeaturedItems.css";
 
 function Home() {
@@ -15,17 +16,17 @@ function Home() {
   useEffect(() => {
     const fetchFeaturedItems = async () => {
       try {
-        const response = await fetch("http://localhost:5000/api/listings/latest");
+        const response = await fetch(`${API_URL}/api/listings/latest`);
         const data = await response.json();
         if (!response.ok) throw new Error(data.message || "Failed to fetch listings");
 
         
         const mappedItems = data.map((listing, index) => {
-          console.log("Listing Image URL:", listing.image ?[ `http://localhost:5000${listing.image}`] : "Using placeholder");
+          console.log("Listing Image URL:", listing.image ?[ `${API_URL}${listing.image}`] : "Using placeholder");
           return {
             id: listing._id,
             title: listing.productName,
-            images: listing.image ? [`http://localhost:5000${listing.image}`] : ["http://localhost:5000/uploads/1750016933094.png"],
+            images: listing.image ? [`${API_URL}${listing.image}`] : [`${API_URL}/uploads/1750016933094.png`],
             condition: listing.condition.toLowerCase(),
             description: listing.description,
             sellerName: listing.userId?.fullName || "Unknown Seller", // Use the populated user's fullName

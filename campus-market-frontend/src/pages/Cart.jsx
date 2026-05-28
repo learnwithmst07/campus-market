@@ -3,6 +3,7 @@
 import React, { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { ShoppingCart, X } from "lucide-react";
+import API_URL from "../api";
 import "./Cart.css";
 
 function Cart() {
@@ -14,7 +15,7 @@ function Cart() {
   useEffect(() => {
     const fetchCart = async () => {
       try {
-        const response = await fetch("http://localhost:5000/api/cart", {
+        const response = await fetch(`${API_URL}/api/cart`, {
           method: "GET",
           credentials: "include",
         });
@@ -35,7 +36,7 @@ function Cart() {
 
   const handleRemoveFromCart = async (listingId) => {
     try {
-      const response = await fetch(`http://localhost:5000/api/cart/remove/${listingId}`, {
+      const response = await fetch(`${API_URL}/api/cart/remove/${listingId}`, {
         method: "DELETE",
         credentials: "include",
       });
@@ -44,7 +45,7 @@ function Cart() {
 
       setMessage("Item removed successfully!");
       // Refresh cart after removal
-      const updatedCart = await fetch("http://localhost:5000/api/cart", {
+      const updatedCart = await fetch(`${API_URL}/api/cart`, {
         method: "GET",
         credentials: "include",
       }).then((res) => res.json());
@@ -97,7 +98,7 @@ function Cart() {
                 <div key={item._id} className="cart-item">
                   <Link to={`/item/${item.listingId._id}`} className="cart-item-link">
                     <img
-                      src={item.listingId.image ? `http://localhost:5000${item.listingId.image}` : "/path/to/placeholder-image.jpg"}
+                      src={item.listingId.image ? `${API_URL}${item.listingId.image}` : "/path/to/placeholder-image.jpg"}
                       alt={item.listingId.productName}
                       className="cart-item-image"
                       onError={(e) => (e.target.src = "/path/to/placeholder-image.jpg")}

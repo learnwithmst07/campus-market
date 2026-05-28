@@ -17,7 +17,7 @@
 //     // Check if user is logged in
 //     const checkAuth = async () => {
 //       try {
-//         const response = await fetch("http://localhost:5000/api/auth/check-auth", {
+//         const response = await fetch(`${API_URL}/api/auth/check-auth`, {
 //           credentials: "include",
 //         });
 //         const data = await response.json();
@@ -35,7 +35,7 @@
 
 //     const fetchItem = async () => {
 //       try {
-//         const response = await fetch(`http://localhost:5000/api/listings/${id}`);
+//         const response = await fetch(`${API_URL}/api/listings/${id}`);
 //         const data = await response.json();
 //         if (!response.ok) throw new Error(data.message || "Failed to fetch listing");
 
@@ -44,7 +44,7 @@
 //         setItem({
 //           id: data._id,
 //           title: data.productName || "Untitled",
-//           image: data.image ? `http://localhost:5000${data.image}` : placeholderImage,
+//           image: data.image ? `${API_URL}${data.image}` : placeholderImage,
 //           condition: data.condition ? data.condition.toLowerCase() : "unknown",
 //           description: data.description || "No description available",
 //           sellerName: data.userId?.fullName || "Unknown Seller",
@@ -106,7 +106,7 @@
 
 //     try {
 //       console.log("Adding to cart, listingId:", id, "User logged in:", isLoggedIn); // Debug log
-//       const response = await fetch("http://localhost:5000/api/cart/add", {
+//       const response = await fetch(`${API_URL}/api/cart/add`, {
 //         method: "POST",
 //         headers: { "Content-Type": "application/json" },
 //         credentials: "include",
@@ -234,6 +234,7 @@ import React, { useState, useEffect } from "react";
 import { useParams, Link, useNavigate } from "react-router-dom";
 import { MapPin, Clock, User, X, Phone, ShoppingCart } from "lucide-react";
 import placeholderImage from "../assets/react.svg";
+import API_URL from "../api";
 import "./ItemDetails.css";
 
 function ItemDetails() {
@@ -249,7 +250,7 @@ function ItemDetails() {
     // Check if user is logged in
     const checkAuth = async () => {
       try {
-        const response = await fetch("http://localhost:5000/api/auth/check-auth", {
+        const response = await fetch(`${API_URL}/api/auth/check-auth`, {
           credentials: "include",
         });
         const data = await response.json();
@@ -266,7 +267,7 @@ function ItemDetails() {
 
     const fetchItem = async () => {
       try {
-        const response = await fetch(`http://localhost:5000/api/listings/${id}`);
+        const response = await fetch(`${API_URL}/api/listings/${id}`);
         const data = await response.json();
         if (!response.ok) throw new Error(data.message || "Failed to fetch listing");
 
@@ -275,7 +276,7 @@ function ItemDetails() {
         setItem({
           id: data._id,
           title: data.productName || "Untitled",
-          image: data.image ? `http://localhost:5000${data.image}` : placeholderImage,
+          image: data.image ? `${API_URL}${data.image}` : placeholderImage,
           condition: data.condition ? data.condition.toLowerCase() : "unknown",
           description: data.description || "No description available",
           sellerName: data.userId?.fullName || "Unknown Seller",
@@ -337,7 +338,7 @@ function ItemDetails() {
     }
 
     try {
-      const response = await fetch("http://localhost:5000/api/cart/add", {
+      const response = await fetch(`${API_URL}/api/cart/add`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         credentials: "include",
