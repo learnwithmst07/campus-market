@@ -86,7 +86,14 @@ if (!fs.existsSync(uploadsDir)) {
 connectDB();
 
 // Middleware
-app.use(cors({ origin: "http://localhost:5173", credentials: true }));
+// app.use(cors({ origin: "http://localhost:5173", credentials: true }));
+app.use(cors({
+  origin: [
+    "http://localhost:5173",
+    "campus-market-pink.vercel.app"
+  ],
+  credentials: true
+}));
 app.use(express.json({ limit: "50mb" }));
 // Log requests to the uploads folder
 app.use("/uploads", (req, res, next) => {
@@ -104,6 +111,7 @@ app.use("/uploads", (req, res, next) => {
 //     cookie: { secure: false, maxAge: 24 * 60 * 60 * 1000 }, // 24 hours
 //   })
 // );
+app.set("trust proxy", 1);
 app.use(
   session({
     secret: process.env.SESSION_SECRET,
