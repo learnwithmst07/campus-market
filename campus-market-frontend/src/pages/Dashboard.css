@@ -1,0 +1,320 @@
+.dashboard-page {
+  padding: 2rem;
+  background-color: #f9f9f9;
+  min-height: 100vh;
+}
+
+.dashboard-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.dashboard-title {
+  font-size: 1.5rem;
+  color: #333;
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+/* Profile Section */
+.profile-section {
+  background-color: white;
+  padding: 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin-bottom: 2rem;
+}
+
+.profile-header {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.profile-icon {
+  color: #4CAF50;
+}
+
+.profile-title {
+  font-size: 1.25rem;
+  color: #333;
+}
+
+.profile-details p {
+  margin: 0.5rem 0;
+  font-size: 1rem;
+  color: #666;
+}
+
+.profile-details strong {
+  color: #333;
+}
+
+.edit-profile-button {
+  display: inline-block;
+  margin-top: 1rem;
+  padding: 0.5rem 1rem;
+  background-color: #4CAF50;
+  color: white;
+  border-radius: 5px;
+  text-decoration: none;
+  transition: background-color 0.3s;
+}
+
+.edit-profile-button:hover {
+  background-color: #45a049;
+}
+
+/* Listings Section */
+.listings-section {
+  background-color: white;
+  padding: 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.listings-title {
+  font-size: 1.25rem;
+  color: #333;
+  margin-bottom: 1rem;
+}
+
+.success-message {
+  color: #4CAF50;
+  font-size: 0.9rem;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.no-listings {
+  text-align: center;
+  padding: 2rem;
+}
+
+.no-listings p {
+  font-size: 1.2rem;
+  color: #666;
+  margin-bottom: 1rem;
+}
+
+.sell-link {
+  display: inline-block;
+  padding: 0.75rem 1.5rem;
+  background-color: #4CAF50;
+  color: white;
+  border-radius: 5px;
+  text-decoration: none;
+  transition: background-color 0.3s;
+}
+
+.sell-link:hover {
+  background-color: #45a049;
+}
+
+.listings-table-wrapper {
+  overflow-x: auto;
+}
+
+.listings-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.9rem;
+}
+
+.listings-table th,
+.listings-table td {
+  padding: 0.75rem;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+.listings-table th {
+  background-color: #f1f1f1;
+  color: #333;
+  font-weight: 600;
+}
+
+.listings-table td {
+  color: #666;
+}
+
+.product-link {
+  color: #16ab00;;
+  text-decoration: none;
+}
+
+.product-link:hover {
+  text-decoration: underline;
+}
+
+.delete-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #e74c3c;
+  transition: color 0.3s;
+}
+
+.delete-button:hover {
+  color: #c0392b;
+}
+
+/* Error and Loading States */
+.dashboard-error {
+  text-align: center;
+  color: #e74c3c;
+  font-size: 1.2rem;
+  margin-top: 2rem;
+}
+
+.login-link {
+  display: inline-block;
+  margin-left: 0.5rem;
+  color: #4CAF50;
+  text-decoration: none;
+}
+
+.login-link:hover {
+  text-decoration: underline;
+}
+
+.dashboard-loading {
+  text-align: center;
+  font-size: 1.2rem;
+  color: #666;
+  margin-top: 2rem;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .dashboard-page {
+    padding: 1rem;
+  }
+
+  .dashboard-title {
+    font-size: 1.25rem;
+  }
+
+  .profile-section,
+  .listings-section {
+    padding: 1rem;
+  }
+
+  .profile-title,
+  .listings-title {
+    font-size: 1.1rem;
+  }
+
+  .profile-details p {
+    font-size: 0.9rem;
+  }
+
+  .edit-profile-button,
+  .sell-link {
+    padding: 0.5rem 1rem;
+    font-size: 0.9rem;
+  }
+
+  .listings-table {
+    font-size: 0.8rem;
+  }
+
+  .listings-table th,
+  .listings-table td {
+    padding: 0.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .dashboard-title {
+    font-size: 1.1rem;
+  }
+
+  .profile-details p {
+    font-size: 0.85rem;
+  }
+
+  .listings-table th,
+  .listings-table td {
+    font-size: 0.75rem;
+    padding: 0.4rem;
+  }
+
+  .delete-button svg {
+    width: 14px;
+    height: 14px;
+  }
+}
+.mt-edit{
+    border: 0px;
+    border-radius: 7px;
+    display: flex;
+    justify-self: self-start;
+}
+.mt-edit-sell{
+    border: 0px;
+    border-radius: 7px;
+    display: flex;
+    justify-self: anchor-center;
+}
+
+/* Sold / Available badges */
+.badge-sold {
+  display: inline-block;
+  padding: 0.2rem 0.6rem;
+  background-color: #e74c3c;
+  color: white;
+  border-radius: 12px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+}
+
+.badge-available {
+  display: inline-block;
+  padding: 0.2rem 0.6rem;
+  background-color: #27ae60;
+  color: white;
+  border-radius: 12px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+}
+
+/* Actions column */
+.actions-cell {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+/* Mark as Sold button */
+.sold-toggle-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 0.3rem 0.65rem;
+  background-color: #27ae60;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 0.78rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.25s, transform 0.15s;
+}
+
+.sold-toggle-button:hover {
+  background-color: #219150;
+  transform: scale(1.04);
+}
+
+.sold-toggle-button.unsold {
+  background-color: #888;
+}
+
+.sold-toggle-button.unsold:hover {
+  background-color: #666;
+}

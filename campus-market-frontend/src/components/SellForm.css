@@ -1,0 +1,152 @@
+.sell-form-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #e0f7fa, #f3e8ff);
+  padding: 16px;
+}
+
+.sell-form-container {
+  background-color: white;
+  border-radius: 16px;
+  padding: 32px;
+  width: 100%;
+  max-width: 600px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.sell-form-title {
+  font-size: 24px;
+  font-weight: bold;
+  color: #1f2937;
+  text-align: center;
+  margin-bottom: 8px;
+}
+
+.sell-form-subtitle {
+  font-size: 14px;
+  color: #6b7280;
+  text-align: center;
+  margin-bottom: 24px;
+}
+
+.success-message {
+  font-size: 14px;
+  color: #10b981;
+  text-align: center;
+  margin-bottom: 16px;
+}
+
+.error-message {
+  font-size: 14px;
+  color: #ef4444;
+  text-align: center;
+  margin-bottom: 16px;
+}
+
+.sell-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-label {
+  font-size: 14px;
+  color: #374151;
+  margin-bottom: 8px;
+}
+
+.form-input,
+.form-textarea,
+.form-select {
+  padding: 12px 16px;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  font-size: 14px;
+  color: #374151;
+  outline: none;
+  transition: border-color 0.3s;
+}
+
+.form-input:focus,
+.form-textarea:focus,
+.form-select:focus {
+  border-color: #3b82f6;
+}
+
+.form-input::placeholder,
+.form-textarea::placeholder {
+  color: #9ca3af;
+}
+
+.form-textarea {
+  resize: vertical;
+  min-height: 100px;
+}
+
+.form-select {
+  appearance: none;
+  background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="currentColor" viewBox="0 0 16 16"><path d="M8 12l-6-6h12z"/></svg>') no-repeat right 12px center;
+  background-size: 12px;
+  padding-right: 36px;
+}
+
+.form-input[type="file"] {
+  padding: 8px 16px;
+}
+
+.image-preview {
+  max-width: 100%;
+  height: auto;
+  margin-top: 8px;
+  border-radius: 8px;
+}
+
+.submit-button {
+  background: linear-gradient(to right, #3b82f6, #14b8a6);
+  color: white;
+  padding: 12px;
+  border: none;
+  border-radius: 999px;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.3s;
+  margin-top: 8px;
+}
+
+.submit-button:hover {
+  background: linear-gradient(to right, #2563eb, #0d9488);
+}
+
+@media (max-width: 480px) {
+  .sell-form-container {
+    padding: 24px;
+  }
+
+  .sell-form-title {
+    font-size: 20px;
+  }
+
+  .sell-form-subtitle {
+    font-size: 12px;
+  }
+
+  .form-input,
+  .form-textarea,
+  .form-select {
+    padding: 10px 12px;
+    font-size: 12px;
+  }
+
+  .submit-button {
+    padding: 10px;
+    font-size: 14px;
+  }
+}
